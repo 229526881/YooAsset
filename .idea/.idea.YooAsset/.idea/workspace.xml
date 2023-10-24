@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32ca5d90-9ada-4a8f-a836-e254a0a706c4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
-    </list>
+    <list default="true" id="32ca5d90-9ada-4a8f-a836-e254a0a706c4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,14 +15,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351e49e2a5bf4fd6beabb458ce2255f3ff600/b8/e568b437/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bbfbd5a71eea45d1a1354233c800516b762200/65/6c28632c/AssetBundleBuild.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bbfbd5a71eea45d1a1354233c800516b762200/f4/c8397925/BuildPipeline.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/YooAsset/Editor/AssetBundleBuilder/AssetBundleBuilder.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/YooAsset/Editor/AssetBundleBuilder/AssetBundleBuilderHelper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/YooAsset/Editor/AssetBundleBuilder/AssetBundleBuilderSetting.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/YooAsset/Editor/AssetBundleBuilder/BuildParameters.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/YooAsset/Editor/AssetBundleBuilder/BuildSystem/BuildRunner.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/YooAsset/Runtime/Settings/YooAssetSettings.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/YooAsset/Samples/Space Shooter/GameScript/Runtime/Boot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/YooAsset/Samples/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/YooAsset/Editor/AssetBundleBuilder/AssetBundleBuilderSettingData.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/YooAsset/Editor/AssetBundleBuilder/BuildTasks/TaskCreateManifest.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/YooAsset/Editor/AssetBundleBuilder/BuildTasks/TaskCreateReport.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/YooAsset/Samples/Space Shooter/GameScript/Runtime/Boot.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -58,7 +52,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.1f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\IDE\Unity\2020.3.24f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath E:\Unity2021\AllProject\YooAsset -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\Unity2021\AllProject\YooAsset" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -66,7 +60,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.1f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\IDE\Unity\2020.3.24f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath E:\Unity2021\AllProject\YooAsset -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\Unity2021\AllProject\YooAsset" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -113,7 +107,7 @@
       <workItem from="1696926169993" duration="2485000" />
       <workItem from="1697014530562" duration="7456000" />
       <workItem from="1697996072704" duration="1189000" />
-      <workItem from="1698168791973" duration="626000" />
+      <workItem from="1698171166535" duration="45000" />
     </task>
     <servers />
   </component>

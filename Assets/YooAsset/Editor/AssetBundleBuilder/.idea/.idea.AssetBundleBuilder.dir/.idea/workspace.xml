@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5ae3ef60-c3c0-4e5b-b53c-9c42769bd159" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/CustomPackRule.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/PackageComparator.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/PackageComparator/PackageComparatorWindow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/PackageComparator/PackageComparatorWindow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/PackageImporter.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/PackageImporter/PackageImporterWindow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/PackageImporter/PackageImporterWindow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/ShaderVariantCollector.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/ShaderVariantCollector/ShaderVariantCollectionHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/ShaderVariantCollector/ShaderVariantCollectionHelper.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/ShaderVariantCollector/ShaderVariantCollectionManifest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/ShaderVariantCollector/ShaderVariantCollectionManifest.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/ShaderVariantCollector/ShaderVariantCollector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/ShaderVariantCollector/ShaderVariantCollector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/ShaderVariantCollector/ShaderVariantCollectorSetting.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/ShaderVariantCollector/ShaderVariantCollectorSetting.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/ShaderVariantCollector/ShaderVariantCollectorWindow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/ShaderVariantCollector/ShaderVariantCollectorWindow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/ShaderVariantCollector/ShaderVariantCollectorWindow.uxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Editor/ShaderVariantCollector/ShaderVariantCollectorWindow.uxml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Runtime/AssetOperationHandleExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Runtime/GameObjectAssetReference.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Extension Sample/Scripts/Runtime/LoadAssetsByTagOperation.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/AssetSetting/AssetBundleCollectorConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/AssetSetting/AssetBundleCollectorSetting.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/Boot.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameArt/UIAtlas/common.spriteatlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameRes/Scene/scene_battle.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameRes/Scene/scene_battleSettings.lighting" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameRes/Scene/scene_battleSettings.lighting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameRes/Scene/scene_home.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameRes/Scene/scene_homeSettings.lighting" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameRes/Scene/scene_homeSettings.lighting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameRes/UIPanel/UIBattle.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameRes/UIPanel/UIHome.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameRes/UIPanel/UILoading.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Editor/Encryption.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/BattleLogic/BattleRoom.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/BattleLogic/EntityAsteroid.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/BattleLogic/EntityAsteroid.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/BattleLogic/EntityBullet.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/BattleLogic/EntityBullet.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/BattleLogic/EntityEffect.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/BattleLogic/EntityEffect.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/BattleLogic/EntityEnemy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/BattleLogic/EntityEnemy.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/BattleLogic/EntityPlayer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/BattleLogic/EntityPlayer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/Behaviour/ApplicationQuit.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/Behaviour/ApplicationQuit.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/Behaviour/BackgroundScroller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/Behaviour/BackgroundScroller.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/Boot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/GameLogic/GameManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/GameLogic/SceneBattle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/GameLogic/SceneBattle.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/GameLogic/SceneHome.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/GameLogic/SceneHome.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmClearPackageCache.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmClearPackageCache.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmCreatePackageDownloader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmCreatePackageDownloader.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmDownloadPackageFiles.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmDownloadPackageFiles.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmDownloadPackageOver.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmDownloadPackageOver.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmInitializePackage.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmInitializePackage.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmUpdatePackageManifest.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmUpdatePackageVersion.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmUpdatePackageVersion.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmUpdaterDone.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/FsmNode/FsmUpdaterDone.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/PatchOperation.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/PatchLogic/PatchOperation.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/WindowLogic.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/WindowLogic/UIAboutWindow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/WindowLogic/UIAboutWindow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/WindowLogic/UIBattleWindow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/WindowLogic/UIBattleWindow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/WindowLogic/UIHomeWindow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/WindowLogic/UIHomeWindow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/WindowLogic/UILoadingWindow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/GameScript/Runtime/WindowLogic/UILoadingWindow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/Resources/PatchWindow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/ThirdParty/StreamingAssetsHelper/StreamingAssetsHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/Space Shooter/ThirdParty/UniFramework/UniMachine/Runtime/StateMachine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Samples~/UniTask Sample/UniTask/Runtime/External/YooAsset/OperationHandleBaseExtensions.cs" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2XDfQe9M7rlqWQ4r6wK31DWaSm1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\SJJ\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\SJJ\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\SJJ\\AppData\\Local\\Symbols\\src"
+    ]
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5ae3ef60-c3c0-4e5b-b53c-9c42769bd159" name="Changes" comment="" />
+      <created>1698168557517</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698168557517</updated>
+      <workItem from="1698168559607" duration="5000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

@@ -149,7 +149,7 @@ namespace YooAsset
 
 				// 移除已经完成的下载器（无论成功或失败）
 				foreach (var loader in _removeList)
-				{
+				{ 
 					_downloaders.Remove(loader);
 				}
 
@@ -175,7 +175,7 @@ namespace YooAsset
 						var bundleInfo = _bundleInfoList[index];
 						var downloader = bundleInfo.CreateDownloader(_failedTryAgain, _timeout);
 						downloader.SendRequest();
-						_downloaders.Add(downloader);
+						_downloaders.Add(downloader); 
 						_bundleInfoList.RemoveAt(index);
 						OnStartDownloadFileCallback?.Invoke(bundleInfo.Bundle.BundleName, bundleInfo.Bundle.FileSize);
 					}

@@ -171,7 +171,7 @@ namespace YooAsset.Editor
 			}
 			else
 			{
-				string assetPath = CollectPath;//如果本身就是资源路径
+				string assetPath = CollectPath;
 				if (IsValidateAsset(command, assetPath) && IsCollectAsset(group, assetPath))
 				{
 					var collectAssetInfo = CreateCollectAssetInfo(command, group, assetPath);
@@ -199,7 +199,7 @@ namespace YooAsset.Editor
 						if (address.StartsWith("Assets/") || address.StartsWith("assets/"))
 							throw new Exception($"The address can not set asset path in collector : {CollectPath} \nAssetPath: {assetPath}");
 
-						if (addressTemper.TryGetValue(address, out var existed) == false) //有重复地址则认定寻址规则有误，有重复得更换规则
+						if (addressTemper.TryGetValue(address, out var existed) == false)
 							addressTemper.Add(address, assetPath);
 						else
 							throw new Exception($"The address is existed : {address} in collector : {CollectPath} \nAssetPath:\n     {existed}\n     {assetPath}");

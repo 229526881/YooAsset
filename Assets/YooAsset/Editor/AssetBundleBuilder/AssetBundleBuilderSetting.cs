@@ -82,7 +82,7 @@ namespace YooAsset.Editor
 		public static string GetPackageEncyptionClassName(string packageName, EBuildPipeline buildPipeline)
 		{
 			string key = $"{Application.productName}_{packageName}_{buildPipeline}_EncyptionClassName";
-			return EditorPrefs.GetString(key, "YooAsset.Editor.EncryptionNone");
+			return EditorPrefs.GetString(key, string.Empty);
 		}
 		public static void SetPackageEncyptionClassName(string packageName, EBuildPipeline buildPipeline, string encyptionClassName)
 		{

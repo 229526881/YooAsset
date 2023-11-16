@@ -43,7 +43,6 @@ namespace YooAsset.Editor
 			List<string> exceptBundleList1 = unityCreateBundles.Except(mapBundles).ToList();
 			if (exceptBundleList1.Count > 0)
 			{
-				//构建了没有在需求清单里的ab包
 				foreach (var exceptBundle in exceptBundleList1)
 				{
 					string warning = BuildLogger.GetErrorMessage(ErrorCode.UnintendedBuildBundle, $"Found unintended build bundle : {exceptBundle}");
@@ -54,7 +53,7 @@ namespace YooAsset.Editor
 				throw new Exception(exception);
 			}
 
-			// 3. 验证Bundle 反向验证
+			// 3. 验证Bundle
 			List<string> exceptBundleList2 = mapBundles.Except(unityCreateBundles).ToList();
 			if (exceptBundleList2.Count > 0)
 			{

@@ -21,7 +21,7 @@ namespace YooAsset.Editor
 
 		private TextField _buildOutputField;
 		private TextField _buildVersionField;
-		private PopupField<Enum>  _buildModeField;
+		private PopupField<Enum> _buildModeField;
 		private PopupField<Type> _encryptionField;
 		private EnumField _compressionField;
 		private EnumField _outputNameStyleField;
@@ -65,8 +65,6 @@ namespace YooAsset.Editor
 				var buildMode = AssetBundleBuilderSetting.GetPackageBuildMode(PackageName, BuildPipeline);
 				var buildModeList = GetSupportBuildModes();
 				int defaultIndex = buildModeList.FindIndex(x => x.Equals(buildMode));
-				if (defaultIndex < 0) defaultIndex = 0;
-		
 				_buildModeField = new PopupField<Enum>(buildModeList, defaultIndex);
 				_buildModeField.label = "Build Mode";
 				_buildModeField.style.width = StyleWidth;

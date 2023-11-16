@@ -146,7 +146,7 @@ namespace YooAsset
 				var editorSimulateModeImpl = new EditorSimulateModeImpl(PackageName);
 				_bundleQuery = editorSimulateModeImpl;
 				_playModeImpl = editorSimulateModeImpl;
-				_resourceMgr.Initialize(true, parameters.LoadingMaxTimeSlice, _bundleQuery);
+				_resourceMgr.Initialize(true, parameters.AutoDestroyAssetProvider, _bundleQuery);
 
 				var initializeParameters = parameters as EditorSimulateModeParameters;
 				initializeOperation = editorSimulateModeImpl.InitializeAsync(assist, initializeParameters.SimulateManifestFilePath);
@@ -156,7 +156,7 @@ namespace YooAsset
 				var offlinePlayModeImpl = new OfflinePlayModeImpl(PackageName);
 				_bundleQuery = offlinePlayModeImpl;
 				_playModeImpl = offlinePlayModeImpl;
-				_resourceMgr.Initialize(false, parameters.LoadingMaxTimeSlice, _bundleQuery);
+				_resourceMgr.Initialize(false, parameters.AutoDestroyAssetProvider, _bundleQuery);
 
 				var initializeParameters = parameters as OfflinePlayModeParameters;
 				initializeOperation = offlinePlayModeImpl.InitializeAsync(assist);
@@ -166,7 +166,7 @@ namespace YooAsset
 				var hostPlayModeImpl = new HostPlayModeImpl(PackageName);
 				_bundleQuery = hostPlayModeImpl;
 				_playModeImpl = hostPlayModeImpl;
-				_resourceMgr.Initialize(false, parameters.LoadingMaxTimeSlice, _bundleQuery);
+				_resourceMgr.Initialize(false, parameters.AutoDestroyAssetProvider, _bundleQuery);
 
 				var initializeParameters = parameters as HostPlayModeParameters;
 				initializeOperation = hostPlayModeImpl.InitializeAsync(assist,
@@ -179,7 +179,7 @@ namespace YooAsset
 				var webPlayModeImpl = new WebPlayModeImpl(PackageName);
 				_bundleQuery = webPlayModeImpl;
 				_playModeImpl = webPlayModeImpl;
-				_resourceMgr.Initialize(false, parameters.LoadingMaxTimeSlice, _bundleQuery);
+				_resourceMgr.Initialize(false, parameters.AutoDestroyAssetProvider, _bundleQuery);
 
 				var initializeParameters = parameters as WebPlayModeParameters;
 				initializeOperation = webPlayModeImpl.InitializeAsync(assist,
@@ -265,13 +265,6 @@ namespace YooAsset
 					throw new Exception($"{nameof(EPlayMode.WebPlayMode)} only support WebGL plateform !");
 				}
 #endif
-			}
-
-			// 检测参数范围
-			if (parameters.LoadingMaxTimeSlice < 10)
-			{
-				parameters.LoadingMaxTimeSlice = 10;
-				YooLogger.Warning($"{nameof(parameters.LoadingMaxTimeSlice)} minimum value is 10 milliseconds.");
 			}
 		}
 		private void InitializeOperation_Completed(AsyncOperationBase op)
@@ -548,7 +541,7 @@ namespace YooAsset
 		public RawFileHandle LoadRawFileSync(AssetInfo assetInfo)
 		{
 			DebugCheckInitialize();
-			return LoadRawFileInternal(assetInfo, true);
+			return LoadRawFileInternal(assetInfo, true, 0);
 		}
 
 		/// <summary>
@@ -559,35 +552,37 @@ namespace YooAsset
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, null);
-			return LoadRawFileInternal(assetInfo, true);
+			return LoadRawFileInternal(assetInfo, true, 0);
 		}
 
 		/// <summary>
 		/// 异步加载原生文件
 		/// </summary>
 		/// <param name="assetInfo">资源信息</param>
-		public RawFileHandle LoadRawFileAsync(AssetInfo assetInfo)
+		/// <param name="priority">加载的优先级</param>
+		public RawFileHandle LoadRawFileAsync(AssetInfo assetInfo, uint priority = 0)
 		{
 			DebugCheckInitialize();
-			return LoadRawFileInternal(assetInfo, false);
+			return LoadRawFileInternal(assetInfo, false, priority);
 		}
 
 		/// <summary>
 		/// 异步加载原生文件
 		/// </summary>
 		/// <param name="location">资源的定位地址</param>
-		public RawFileHandle LoadRawFileAsync(string location)
+		/// <param name="priority">加载的优先级</param>
+		public RawFileHandle LoadRawFileAsync(string location, uint priority = 0)
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, null);
-			return LoadRawFileInternal(assetInfo, false);
+			return LoadRawFileInternal(assetInfo, false, priority);
 		}
 
 
-		private RawFileHandle LoadRawFileInternal(AssetInfo assetInfo, bool waitForAsyncComplete)
+		private RawFileHandle LoadRawFileInternal(AssetInfo assetInfo, bool waitForAsyncComplete, uint priority)
 		{
 			DebugCheckRawFileLoadMethod(nameof(LoadRawFileAsync));
-			var handle = _resourceMgr.LoadRawFileAsync(assetInfo);
+			var handle = _resourceMgr.LoadRawFileAsync(assetInfo, priority);
 			if (waitForAsyncComplete)
 				handle.WaitForAsyncComplete();
 			return handle;
@@ -601,8 +596,8 @@ namespace YooAsset
 		/// <param name="location">场景的定位地址</param>
 		/// <param name="sceneMode">场景加载模式</param>
 		/// <param name="suspendLoad">场景加载到90%自动挂起</param>
-		/// <param name="priority">优先级</param>
-		public SceneHandle LoadSceneAsync(string location, LoadSceneMode sceneMode = LoadSceneMode.Single, bool suspendLoad = false, int priority = 100)
+		/// <param name="priority">加载的优先级</param>
+		public SceneHandle LoadSceneAsync(string location, LoadSceneMode sceneMode = LoadSceneMode.Single, bool suspendLoad = false, uint priority = 0)
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, null);
@@ -616,8 +611,8 @@ namespace YooAsset
 		/// <param name="assetInfo">场景的资源信息</param>
 		/// <param name="sceneMode">场景加载模式</param>
 		/// <param name="suspendLoad">场景加载到90%自动挂起</param>
-		/// <param name="priority">优先级</param>
-		public SceneHandle LoadSceneAsync(AssetInfo assetInfo, LoadSceneMode sceneMode = LoadSceneMode.Single, bool suspendLoad = false, int priority = 100)
+		/// <param name="priority">加载的优先级</param>
+		public SceneHandle LoadSceneAsync(AssetInfo assetInfo, LoadSceneMode sceneMode = LoadSceneMode.Single, bool suspendLoad = false, uint priority = 0)
 		{
 			DebugCheckInitialize();
 			var handle = _resourceMgr.LoadSceneAsync(assetInfo, sceneMode, suspendLoad, priority);
@@ -633,7 +628,7 @@ namespace YooAsset
 		public AssetHandle LoadAssetSync(AssetInfo assetInfo)
 		{
 			DebugCheckInitialize();
-			return LoadAssetInternal(assetInfo, true);
+			return LoadAssetInternal(assetInfo, true, 0);
 		}
 
 		/// <summary>
@@ -645,7 +640,7 @@ namespace YooAsset
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, typeof(TObject));
-			return LoadAssetInternal(assetInfo, true);
+			return LoadAssetInternal(assetInfo, true, 0);
 		}
 
 		/// <summary>
@@ -657,7 +652,7 @@ namespace YooAsset
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, type);
-			return LoadAssetInternal(assetInfo, true);
+			return LoadAssetInternal(assetInfo, true, 0);
 		}
 
 		/// <summary>
@@ -669,7 +664,7 @@ namespace YooAsset
 			DebugCheckInitialize();
 			Type type = typeof(UnityEngine.Object);
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, type);
-			return LoadAssetInternal(assetInfo, true);
+			return LoadAssetInternal(assetInfo, true, 0);
 		}
 
 
@@ -677,10 +672,11 @@ namespace YooAsset
 		/// 异步加载资源对象
 		/// </summary>
 		/// <param name="assetInfo">资源信息</param>
-		public AssetHandle LoadAssetAsync(AssetInfo assetInfo)
+		/// <param name="priority">加载的优先级</param>
+		public AssetHandle LoadAssetAsync(AssetInfo assetInfo, uint priority = 0)
 		{
 			DebugCheckInitialize();
-			return LoadAssetInternal(assetInfo, false);
+			return LoadAssetInternal(assetInfo, false, priority);
 		}
 
 		/// <summary>
@@ -688,11 +684,12 @@ namespace YooAsset
 		/// </summary>
 		/// <typeparam name="TObject">资源类型</typeparam>
 		/// <param name="location">资源的定位地址</param>
-		public AssetHandle LoadAssetAsync<TObject>(string location) where TObject : UnityEngine.Object
+		/// <param name="priority">加载的优先级</param>
+		public AssetHandle LoadAssetAsync<TObject>(string location, uint priority = 0) where TObject : UnityEngine.Object
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, typeof(TObject));
-			return LoadAssetInternal(assetInfo, false);
+			return LoadAssetInternal(assetInfo, false, priority);
 		}
 
 		/// <summary>
@@ -700,31 +697,33 @@ namespace YooAsset
 		/// </summary>
 		/// <param name="location">资源的定位地址</param>
 		/// <param name="type">资源类型</param>
-		public AssetHandle LoadAssetAsync(string location, System.Type type)
+		/// <param name="priority">加载的优先级</param>
+		public AssetHandle LoadAssetAsync(string location, System.Type type, uint priority = 0)
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, type);
-			return LoadAssetInternal(assetInfo, false);
+			return LoadAssetInternal(assetInfo, false, priority);
 		}
 
 		/// <summary>
 		/// 异步加载资源对象
 		/// </summary>
 		/// <param name="location">资源的定位地址</param>
-		public AssetHandle LoadAssetAsync(string location)
+		/// <param name="priority">加载的优先级</param>
+		public AssetHandle LoadAssetAsync(string location, uint priority = 0)
 		{
 			DebugCheckInitialize();
 			Type type = typeof(UnityEngine.Object);
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, type);
-			return LoadAssetInternal(assetInfo, false);
+			return LoadAssetInternal(assetInfo, false, priority);
 		}
 
 
-		private AssetHandle LoadAssetInternal(AssetInfo assetInfo, bool waitForAsyncComplete)
+		private AssetHandle LoadAssetInternal(AssetInfo assetInfo, bool waitForAsyncComplete, uint priority)
 		{
 			DebugCheckAssetLoadMethod(nameof(LoadAssetAsync));
 			DebugCheckAssetLoadType(assetInfo.AssetType);
-			var handle = _resourceMgr.LoadAssetAsync(assetInfo);
+			var handle = _resourceMgr.LoadAssetAsync(assetInfo, priority);
 			if (waitForAsyncComplete)
 				handle.WaitForAsyncComplete();
 			return handle;
@@ -739,7 +738,7 @@ namespace YooAsset
 		public SubAssetsHandle LoadSubAssetsSync(AssetInfo assetInfo)
 		{
 			DebugCheckInitialize();
-			return LoadSubAssetsInternal(assetInfo, true);
+			return LoadSubAssetsInternal(assetInfo, true, 0);
 		}
 
 		/// <summary>
@@ -751,7 +750,7 @@ namespace YooAsset
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, typeof(TObject));
-			return LoadSubAssetsInternal(assetInfo, true);
+			return LoadSubAssetsInternal(assetInfo, true, 0);
 		}
 
 		/// <summary>
@@ -763,7 +762,7 @@ namespace YooAsset
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, type);
-			return LoadSubAssetsInternal(assetInfo, true);
+			return LoadSubAssetsInternal(assetInfo, true, 0);
 		}
 
 		/// <summary>
@@ -775,7 +774,7 @@ namespace YooAsset
 			DebugCheckInitialize();
 			Type type = typeof(UnityEngine.Object);
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, type);
-			return LoadSubAssetsInternal(assetInfo, true);
+			return LoadSubAssetsInternal(assetInfo, true, 0);
 		}
 
 
@@ -783,10 +782,11 @@ namespace YooAsset
 		/// 异步加载子资源对象
 		/// </summary>
 		/// <param name="assetInfo">资源信息</param>
-		public SubAssetsHandle LoadSubAssetsAsync(AssetInfo assetInfo)
+		/// <param name="priority">加载的优先级</param>
+		public SubAssetsHandle LoadSubAssetsAsync(AssetInfo assetInfo, uint priority = 0)
 		{
 			DebugCheckInitialize();
-			return LoadSubAssetsInternal(assetInfo, false);
+			return LoadSubAssetsInternal(assetInfo, false, priority);
 		}
 
 		/// <summary>
@@ -794,11 +794,12 @@ namespace YooAsset
 		/// </summary>
 		/// <typeparam name="TObject">资源类型</typeparam>
 		/// <param name="location">资源的定位地址</param>
-		public SubAssetsHandle LoadSubAssetsAsync<TObject>(string location) where TObject : UnityEngine.Object
+		/// <param name="priority">加载的优先级</param>
+		public SubAssetsHandle LoadSubAssetsAsync<TObject>(string location, uint priority = 0) where TObject : UnityEngine.Object
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, typeof(TObject));
-			return LoadSubAssetsInternal(assetInfo, false);
+			return LoadSubAssetsInternal(assetInfo, false, priority);
 		}
 
 		/// <summary>
@@ -806,31 +807,33 @@ namespace YooAsset
 		/// </summary>
 		/// <param name="location">资源的定位地址</param>
 		/// <param name="type">子对象类型</param>
-		public SubAssetsHandle LoadSubAssetsAsync(string location, System.Type type)
+		/// <param name="priority">加载的优先级</param>
+		public SubAssetsHandle LoadSubAssetsAsync(string location, System.Type type, uint priority = 0)
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, type);
-			return LoadSubAssetsInternal(assetInfo, false);
+			return LoadSubAssetsInternal(assetInfo, false, priority);
 		}
 
 		/// <summary>
 		/// 异步加载子资源对象
 		/// </summary>
 		/// <param name="location">资源的定位地址</param>
-		public SubAssetsHandle LoadSubAssetsAsync(string location)
+		/// <param name="priority">加载的优先级</param>
+		public SubAssetsHandle LoadSubAssetsAsync(string location, uint priority = 0)
 		{
 			DebugCheckInitialize();
 			Type type = typeof(UnityEngine.Object);
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, type);
-			return LoadSubAssetsInternal(assetInfo, false);
+			return LoadSubAssetsInternal(assetInfo, false, priority);
 		}
 
 
-		private SubAssetsHandle LoadSubAssetsInternal(AssetInfo assetInfo, bool waitForAsyncComplete)
+		private SubAssetsHandle LoadSubAssetsInternal(AssetInfo assetInfo, bool waitForAsyncComplete, uint priority)
 		{
 			DebugCheckAssetLoadMethod(nameof(LoadSubAssetsAsync));
 			DebugCheckAssetLoadType(assetInfo.AssetType);
-			var handle = _resourceMgr.LoadSubAssetsAsync(assetInfo);
+			var handle = _resourceMgr.LoadSubAssetsAsync(assetInfo, priority);
 			if (waitForAsyncComplete)
 				handle.WaitForAsyncComplete();
 			return handle;
@@ -845,7 +848,7 @@ namespace YooAsset
 		public AllAssetsHandle LoadAllAssetsSync(AssetInfo assetInfo)
 		{
 			DebugCheckInitialize();
-			return LoadAllAssetsInternal(assetInfo, true);
+			return LoadAllAssetsInternal(assetInfo, true, 0);
 		}
 
 		/// <summary>
@@ -857,7 +860,7 @@ namespace YooAsset
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, typeof(TObject));
-			return LoadAllAssetsInternal(assetInfo, true);
+			return LoadAllAssetsInternal(assetInfo, true, 0);
 		}
 
 		/// <summary>
@@ -869,7 +872,7 @@ namespace YooAsset
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, type);
-			return LoadAllAssetsInternal(assetInfo, true);
+			return LoadAllAssetsInternal(assetInfo, true, 0);
 		}
 
 		/// <summary>
@@ -881,7 +884,7 @@ namespace YooAsset
 			DebugCheckInitialize();
 			Type type = typeof(UnityEngine.Object);
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, type);
-			return LoadAllAssetsInternal(assetInfo, true);
+			return LoadAllAssetsInternal(assetInfo, true, 0);
 		}
 
 
@@ -889,10 +892,11 @@ namespace YooAsset
 		/// 异步加载资源包内所有资源对象
 		/// </summary>
 		/// <param name="assetInfo">资源信息</param>
-		public AllAssetsHandle LoadAllAssetsAsync(AssetInfo assetInfo)
+		/// <param name="priority">加载的优先级</param>
+		public AllAssetsHandle LoadAllAssetsAsync(AssetInfo assetInfo, uint priority = 0)
 		{
 			DebugCheckInitialize();
-			return LoadAllAssetsInternal(assetInfo, false);
+			return LoadAllAssetsInternal(assetInfo, false, priority);
 		}
 
 		/// <summary>
@@ -900,11 +904,12 @@ namespace YooAsset
 		/// </summary>
 		/// <typeparam name="TObject">资源类型</typeparam>
 		/// <param name="location">资源的定位地址</param>
-		public AllAssetsHandle LoadAllAssetsAsync<TObject>(string location) where TObject : UnityEngine.Object
+		/// <param name="priority">加载的优先级</param>
+		public AllAssetsHandle LoadAllAssetsAsync<TObject>(string location, uint priority = 0) where TObject : UnityEngine.Object
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, typeof(TObject));
-			return LoadAllAssetsInternal(assetInfo, false);
+			return LoadAllAssetsInternal(assetInfo, false, priority);
 		}
 
 		/// <summary>
@@ -912,31 +917,33 @@ namespace YooAsset
 		/// </summary>
 		/// <param name="location">资源的定位地址</param>
 		/// <param name="type">子对象类型</param>
-		public AllAssetsHandle LoadAllAssetsAsync(string location, System.Type type)
+		/// <param name="priority">加载的优先级</param>
+		public AllAssetsHandle LoadAllAssetsAsync(string location, System.Type type, uint priority = 0)
 		{
 			DebugCheckInitialize();
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, type);
-			return LoadAllAssetsInternal(assetInfo, false);
+			return LoadAllAssetsInternal(assetInfo, false, priority);
 		}
 
 		/// <summary>
 		/// 异步加载资源包内所有资源对象
 		/// </summary>
 		/// <param name="location">资源的定位地址</param>
-		public AllAssetsHandle LoadAllAssetsAsync(string location)
+		/// <param name="priority">加载的优先级</param>
+		public AllAssetsHandle LoadAllAssetsAsync(string location, uint priority = 0)
 		{
 			DebugCheckInitialize();
 			Type type = typeof(UnityEngine.Object);
 			AssetInfo assetInfo = ConvertLocationToAssetInfo(location, type);
-			return LoadAllAssetsInternal(assetInfo, false);
+			return LoadAllAssetsInternal(assetInfo, false, priority);
 		}
 
 
-		private AllAssetsHandle LoadAllAssetsInternal(AssetInfo assetInfo, bool waitForAsyncComplete)
+		private AllAssetsHandle LoadAllAssetsInternal(AssetInfo assetInfo, bool waitForAsyncComplete, uint priority)
 		{
 			DebugCheckAssetLoadMethod(nameof(LoadAllAssetsAsync));
 			DebugCheckAssetLoadType(assetInfo.AssetType);
-			var handle = _resourceMgr.LoadAllAssetsAsync(assetInfo);
+			var handle = _resourceMgr.LoadAllAssetsAsync(assetInfo, priority);
 			if (waitForAsyncComplete)
 				handle.WaitForAsyncComplete();
 			return handle;
@@ -1157,6 +1164,11 @@ namespace YooAsset
 		{
 			if (type == null)
 				return;
+
+			if (typeof(UnityEngine.Behaviour).IsAssignableFrom(type))
+			{
+				throw new Exception($"Load asset type is invalid : {type.FullName} !");
+			}
 
 			if (typeof(UnityEngine.Object).IsAssignableFrom(type) == false)
 			{

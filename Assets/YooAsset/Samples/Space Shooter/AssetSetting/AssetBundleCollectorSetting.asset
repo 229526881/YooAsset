@@ -100,11 +100,16 @@ MonoBehaviour:
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 
+<<<<<<< HEAD:Assets/YooAsset/Samples/Space Shooter/AssetSetting/AssetBundleCollectorSetting.asset
       - CollectPath: Assets/YooAsset/Samples/Space Shooter/GameRes/UISprite
         CollectorGUID: 01865ad6f7c806147b6cb37f2d83bc96
+=======
+      - CollectPath: Assets/Samples/Space Shooter/GameRes/UIAtlas
+        CollectorGUID: 80caf8bc3d0ac5b48a5cab7765a68205
+>>>>>>> 2626cb675029fcf7bfce916dae49b3e72dfbc1e3:Assets/YooAsset/Samples~/Space Shooter/AssetSetting/AssetBundleCollectorSetting.asset
         CollectorType: 0
         AddressRuleName: AddressByFileName
-        PackRuleName: PackTopDirectory
+        PackRuleName: PackSeparately
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 

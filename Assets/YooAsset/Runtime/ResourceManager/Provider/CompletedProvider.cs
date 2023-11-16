@@ -6,16 +6,19 @@ namespace YooAsset
 		public CompletedProvider(AssetInfo assetInfo) : base(null, string.Empty, assetInfo)
 		{
 		}
-		public override void Update()
+
+		internal override void InternalOnStart()
 		{
 		}
+		internal override void InternalOnUpdate()
+		{
+		}
+
 		public void SetCompleted(string error)
 		{
-			if (Status == EStatus.None)
+			if (_steps == ESteps.None)
 			{
-				Status = EStatus.Failed;
-				LastError = error;
-				InvokeCompletion();
+				InvokeCompletion(error, EOperationStatus.Failed);
 			}
 		}
 	}

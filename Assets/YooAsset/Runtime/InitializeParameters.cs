@@ -76,10 +76,9 @@ namespace YooAsset
 		public EVerifyLevel CacheBootVerifyLevel = EVerifyLevel.Middle;
 
 		/// <summary>
-		/// 资源加载每帧处理的最大时间片段
-		/// 注意：默认值为MaxValue
+		/// 自动销毁不再使用的资源提供者
 		/// </summary>
-		public long LoadingMaxTimeSlice = long.MaxValue;
+		public bool AutoDestroyAssetProvider = false;
 
 		/// <summary>
 		/// 启用断点续传参数

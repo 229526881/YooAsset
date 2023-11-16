@@ -110,12 +110,6 @@ namespace YooAsset
 		/// </summary>
 		public void TryDestroyProviders()
 		{
-			// TODO 不用等待资源包加载完成
-			/*
-			if (IsDone() == false)
-				return;
-			*/
-
 			// 获取移除列表
 			_removeList.Clear();
 			foreach (var provider in _providers)
@@ -134,7 +128,11 @@ namespace YooAsset
 			}
 
 			// 移除资源提供者
-			Impl.RemoveBundleProviders(_removeList);
+			if (_removeList.Count > 0)
+			{
+				Impl.RemoveBundleProviders(_removeList);
+				_removeList.Clear();
+			}
 		}
 
 

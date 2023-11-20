@@ -36,7 +36,7 @@ namespace YooAsset
 			if (_steps == ESteps.LoadBuildinPackageVersionFile)
 			{
 				if (_downloader == null)
-				{
+				{   //先从streamAsseting中加载
 					string filePath = _persistent.GetBuildinPackageVersionFilePath();
 					string url = PersistentHelper.ConvertToWWWPath(filePath);
 					_downloader = new UnityWebDataRequester();

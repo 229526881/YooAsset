@@ -40,7 +40,7 @@ namespace YooAsset.Editor
 			buildParameters.FileNameStyle = fileNameStyle;
 			buildParameters.BuildinFileCopyOption = buildinFileCopyOption;
 			buildParameters.BuildinFileCopyParams = buildinFileCopyParams;
-			buildParameters.EncryptionServices = CreateEncryptionInstance();
+			buildParameters.EncryptionServices = CreateEncryptionInstance(); //寻找在项目中指定类型的加密
 			buildParameters.CompressOption = compressOption;
 
 			ScriptableBuildPipeline pipeline = new ScriptableBuildPipeline();

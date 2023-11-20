@@ -64,6 +64,7 @@ namespace YooAsset
 					Error = _downloader.GetError();
 					RequestHelper.RecordRequestFailed(_packageName, nameof(QueryRemotePackageVersionOperation));
 				}
+				
 				else
 				{
 					PackageVersion = _downloader.GetText();
